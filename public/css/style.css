@@ -70,30 +70,48 @@ a {
 .quote {
   color: #ffffff;
   font-size: 1.4rem;
-  margin: 3em;
-  margin-top: 6em;
-  height: 100%; }
+  padding: 3em;
+  padding-top: 6em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
   .quote-text {
+    margin-top: 0em;
     font-family: "Untitled Sans Regular";
     font-size: 2rem;
     line-height: 1.75; }
   .quote-caption {
-    margin-top: 2em;
+    margin-top: 0;
     font-family: "Untitled Serif Regular";
     font-size: 1rem; }
 
 .whole-page {
   min-height: 100vh;
   width: 100%; }
+  .whole-page .content {
+    height: 100%;
+    width: 60%;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
 
 .split-page-container {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex; }
   .split-page-container .split-page {
+    height: 100%;
     width: 50%;
-    min-height: 10vh;
     display: inline-block; }
+    .split-page-container .split-page .split-page-image {
+      height: 100%;
+      width: 100%;
+      overflow: hidden; }
+      .split-page-container .split-page .split-page-image img {
+        height: 100%;
+        opacity: 0.85; }
 
 .blue {
   background-color: #253340; }
@@ -200,11 +218,26 @@ nav {
     line-height: 1.6;
     margin-top: 0; }
 
-/* About Page */
-.about {
+/* Contact Page */
+.contact {
   height: 100%;
   width: 60%;
   margin: 0 auto 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .contact .contact-grid {
+    margin-top: 3em;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 100%; }
+    .contact .contact-grid .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .contact .contact-grid .contact-card p {
+        font-size: 1rem; }
+      .contact .contact-grid .contact-card h3 {
+        font-family: "Untitled Sans Regular"; }

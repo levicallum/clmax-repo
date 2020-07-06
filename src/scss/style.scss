@@ -61,18 +61,22 @@ a {
 .quote {
     color: $white;
     font-size: 1.4rem;
-    margin: 3em;
-    margin-top: 6em;
+    padding: 3em;
+    padding-top: 6em;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &-text {
+        margin-top: 0em;
         font-family: $sans-reg;
         font-size: 2rem;
         line-height: 1.75;
     }
 
     &-caption {
-        margin-top: 2em;
+        margin-top: 0;
         font-family: $serif-reg;
         font-size: 1rem;
     }
@@ -81,18 +85,37 @@ a {
 .whole-page {
     min-height: 100vh;
     width: 100%;
+
+    .content {
+        height: 100%;
+        width: 60%;
+        margin: 0 auto 3rem auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-.split-page-container{
-    min-height: 100vh;
+.split-page-container {
+    height: 100vh;
     width: 100%;
     display: flex;
 
-    .split-page{
+    .split-page {
+        height: 100%;
         width: 50%;
-        min-height: 10vh;
         display: inline-block;
 
+        .split-page-image {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                height: 100%;
+                opacity: 0.85;
+            }
+        }
     }
 }
 
@@ -233,9 +256,9 @@ nav {
     }
 }
 
-/* About Page */
+/* Contact Page */
 
-.about {
+.contact {
     height: 100%;
     width: 60%;
     margin: 0 auto 3rem auto;
@@ -243,4 +266,31 @@ nav {
     flex-direction: column;
     align-items: center;
 
+    .contact-grid {
+        margin-top: 3em;
+        display: grid;
+        justify-items: center;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+            
+            p {
+                font-size: 1rem;
+            }
+        
+            h3 {
+                font-family: $sans-reg;
+            }
+        } 
+    }
 }
+
+
+
+
+  
