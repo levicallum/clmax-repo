@@ -1,11 +1,10 @@
 @import'reset';
 @import'fonts';
 
-$blue: #253340;
+$blue: #1e3c96;
 $grey: #f7f4f3;
 $white: #ffffff;
 $black: #000000;
-$green: #3a3f33;
 
 $sans-reg: 'Untitled Sans Regular';
 $sans-reg-italic: 'Untitled Sans Regular Italic';
@@ -19,8 +18,7 @@ body {
 // title
 h1 {
     font-family: $sans-reg;
-    font-size: 1.7rem;
-    letter-spacing: 0.25em;
+    font-size: 2rem;
     font-weight: normal;
 }
 
@@ -54,7 +52,7 @@ a {
 }
 
 .title {
-    margin-top: 10em;
+    margin-top: 6rem;
 
 }
 
@@ -62,7 +60,6 @@ a {
     color: $white;
     font-size: 1.4rem;
     padding: 3em;
-    padding-top: 6em;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -72,14 +69,22 @@ a {
         margin-top: 0em;
         font-family: $sans-reg;
         font-size: 2rem;
-        line-height: 1.75;
+        line-height: 1.4;
     }
 
     &-caption {
-        margin-top: 0;
+        padding: 0;
+        margin: 0;
         font-family: $serif-reg;
         font-size: 1rem;
     }
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -3rem;
+    visibility: hidden;
 }
 
 .whole-page {
@@ -89,7 +94,7 @@ a {
     .content {
         height: 100%;
         width: 60%;
-        margin: 0 auto 3rem auto;
+        margin: 0 auto 6rem auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -131,10 +136,6 @@ a {
     background-color: $white;
 }
 
-.green {
-    background-color: $green;
-}
-
 
 
 /* Splash Page */
@@ -155,7 +156,6 @@ a {
     &-text {
         width: 60%;
         text-align: center;
-        text-align: justify;
         text-align-last: center;
     }
 }
@@ -204,6 +204,7 @@ nav {
 .logo {
     text-transform: uppercase;
     margin-left: 2rem;
+    letter-spacing: 0.5em;
 }
 
 .nav-links {
@@ -219,6 +220,10 @@ nav {
     a:hover, .active{
         font-family: $serif-reg-italic;
     }
+}
+
+.mobile-nav {
+    display: none;
 }
 
 /* Home Page */
@@ -243,8 +248,8 @@ nav {
     bottom: 50px;
     left: 33.33%;
     width: 33.33%;
-    text-align: justify;
-    text-justify: inter-word;
+    min-width: 310px;
+    
 
 
     p {
@@ -291,6 +296,9 @@ nav {
 }
 
 
+
+
+@import'media';
 
 
   

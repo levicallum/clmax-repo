@@ -1,3 +1,4 @@
+/* Splash page dynamics */
 const splash = document.querySelector('.splash');
 
 document.addEventListener('DOMContentLoaded', (e)=>{
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (e)=>{
 });
 
 
-/* Nav Button Change */
+/* Nav Button Section Change */
 const thresholdOptions = {
     rootMargin: "0px 0px 0px 0px",
     threshold: 0.5
@@ -18,7 +19,7 @@ const thresholdOptions = {
 
 // about section
 const navAbout = document.querySelector(".nav-about");
-const about = document.querySelector("#about");
+const about = document.querySelector("#about-page");
 
 const aboutObserver = new IntersectionObserver(function(
     entries, 
@@ -72,3 +73,19 @@ const clientsObserver = new IntersectionObserver(function(
 }, thresholdOptions);
 
 clientsObserver.observe(clients);
+
+/* Toggle Mobile Nav */
+
+const navToggle = document.querySelector('.mobile-nav-toggle');
+const mobileNavLinks = document.querySelector('.mobile-nav-links');
+
+navToggle.addEventListener('click', () => {
+    mobileNavLinks.classList.toggle('mobile-nav-open');
+    navToggle.classList.toggle('mobile-nav-open');
+});
+
+mobileNavLinks.addEventListener('click', () => {
+    mobileNavLinks.classList.toggle('mobile-nav-open');
+    navToggle.classList.toggle('mobile-nav-open');
+});
+
