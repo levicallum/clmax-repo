@@ -4,10 +4,10 @@ const splash = document.querySelector('.splash');
 document.addEventListener('DOMContentLoaded', (e)=>{
     setTimeout(()=>{
         splash.classList.add('fade-out');
-    }, 5000);
+    }, 4000);
     setTimeout(()=>{
         splash.classList.add('display-none');
-    }, 7000);
+    }, 5000);
 });
 
 
@@ -38,7 +38,7 @@ aboutObserver.observe(about);
 
 // service section
 const navService = document.querySelector(".nav-service");
-const service = document.querySelector("#service");
+const service = document.querySelector("#service-page");
 
 const serviceObserver = new IntersectionObserver(function(
     entries, 
@@ -57,7 +57,7 @@ serviceObserver.observe(service);
 
 // clients section
 const navClients = document.querySelector(".nav-clients");
-const clients = document.querySelector("#clients");
+const clients = document.querySelector("#clients-page");
 
 const clientsObserver = new IntersectionObserver(function(
     entries, 
@@ -73,6 +73,25 @@ const clientsObserver = new IntersectionObserver(function(
 }, thresholdOptions);
 
 clientsObserver.observe(clients);
+
+// contacts section
+const navContact = document.querySelector(".nav-contact");
+const contact = document.querySelector("#contact-page");
+
+const contactObserver = new IntersectionObserver(function(
+    entries, 
+    contactObserver
+) {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            navContact.classList.add('active');
+        } else {
+            navContact.classList.remove('active');
+        }
+    });
+}, thresholdOptions);
+
+contactObserver.observe(contact);
 
 /* Toggle Mobile Nav */
 

@@ -1,38 +1,55 @@
 @media only screen and (max-width: 1535px) {
 
-    .quote {
-        &-text {
-            font-size: 1.75rem;
-        }
+    :root {
+        --large: 1.75rem;
+        --medium: 1.313rem;
     
-        &-caption {
-            font-size: 0.875rem;
-        }
     }
 }
 
 @media only screen and (max-width: 1165px) {
 
-    .quote {
-        &-text {
-            font-size: 1.5rem;
-        }
-    
-        &-caption {
-            font-size: 0.75rem;
-        }
+    :root{
+        --large: 1.5rem;
+        --medium: 1.125rem;
+
     }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 500px) {
+
+    :root{
+        --large: 1.2rem;
+        --medium: 0.9rem;
+
+    }
+}
+
+@media only screen and (max-width: 900px) {
     
+   
+   
+   /* Splash */
+    .splash {
+        grid-template-columns: 10% 80% 10%;
+    
+        &-text {
+            width: 80%;
+        }
+        
+        &-logo {
+            width: 60%;
+            grid-row: 3 / 4;
+            padding-bottom: 65px;
+        }
+    }
+  
     /* Home Page */
     .clmax-def {
         position: absolute;
-        bottom: 50px;
+        bottom: 46vh;
         width: 80%;
         left: 10%;
-        
     }
 
     /* Offset for anchor */
@@ -48,12 +65,15 @@
         height: 3rem;
     }
 
+    .logo {
+        letter-spacing: 0.3em;
+    }
+
     .nav-links {
         display: none;
     }
 
     .mobile-nav {
-        background-color: none;
         display: block;
         position: absolute;
     }
@@ -68,7 +88,7 @@
 
         .hamburger {
             height: 2px;
-            width: 2em;
+            width: 1.5em;
             background-color: $black;
             position: relative;
             display: block;
@@ -79,7 +99,7 @@
             &::before, &::after {
                 content: '';
                 height: 2px;
-                width: 2em;
+                width: 1.5em;
                 background-color: $black;
                 position: absolute;
                 left:0;
@@ -87,19 +107,17 @@
             }
     
             &::before {
-                bottom: 10px; 
+                bottom: 8px; 
                 background-color: $black;
             }
     
             &::after {
-                top: 10px;
+                top: 8px;
                 background-color: $black;
     
             }
         }
     }
-
-    
 
     .mobile-nav-links {
         width: 100vw;
@@ -110,9 +128,6 @@
         transition: transform 500ms cubic-bezier(.5, 0, 0.5, 1);
         position: fixed;
         top: 3em;
-
-
-
 
         a {
             margin: 1em 2rem 1em 0rem;
@@ -142,12 +157,12 @@
     }
 
     .mobile-nav-open .hamburger::before {
-        transform: rotate(90deg) translate(10px);
+        transform: rotate(90deg) translate(8px);
 
     }
 
     .mobile-nav-open .hamburger::after {
-        transform: rotate(90deg) translate(-10px);
+        transform: rotate(90deg) translate(-8px);
         opacity: 0;
 
     }
@@ -171,45 +186,82 @@
             display: block;
     
             .split-page-image {
-                height: 50vh;
+                height: 100%;
                 width: 100%;
-                    display: block;
+                display: block;
     
                 img {
                     display: block;
-                    height: auto;
-                    width: 100%;
-                    opacity: 0.85;
                     overflow: hidden;
-
-                }
+                    object-fit: cover;
+                    width: 100%;}
             }
         }
     }
 
     .quote {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
+        padding: 0;
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
         width: 100%;
-        height: 50vh;
+        min-height: 50vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-content: center;
     
         &-text {
+            align-self: center;
+            width: 80%;
             margin-top: 0em;
             font-family: $sans-reg;
-            font-size: 1.5rem;
             line-height: 1.4;
         }
     
         &-caption {
             padding: 0;
+            align-self: center;
+            width: 80%;
             margin: 0;
-            font-size: 0.75rem;
+            margin-top: 1em;
+
         }
     }
 
+    /* Mobile footer */
+    
+    /* .footer-address {
+        display: none;
+    }
+    .footer-email p{
+        display: none;
+    } */
+    
+    
+    footer {
+        margin-top: calc(3rem - 139px);
+        height: 139px;
+
+        .footer-content {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+
+            .footer-text {
+                .footer-address {
+                    display: none;
+                }
+                .footer-info {
+                    .footer-email {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
    
 }
+
+

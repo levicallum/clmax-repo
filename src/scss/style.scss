@@ -11,6 +11,13 @@ $sans-reg-italic: 'Untitled Sans Regular Italic';
 $serif-reg: 'Untitled Serif Regular';
 $serif-reg-italic: 'Untitled Serif Regular Italic';
 
+:root {
+    --large: 2rem;
+    --medium: 1.5rem;
+    --small: 1rem;
+    --x-small: 0.75rem;
+}
+
 /* Main Settings */
 body {
     background-color: $grey;
@@ -18,12 +25,12 @@ body {
 // title
 h1 {
     font-family: $sans-reg;
-    font-size: 2rem;
+    font-size: var(--large);
     font-weight: normal;
 }
 
 h2 {
-    font-size: 1rem;
+    font-size: var(--small);
     font-family: $sans-reg;
     text-transform: uppercase;
     letter-spacing: 0.3em;
@@ -32,16 +39,18 @@ h2 {
 
 h3 {
     font-family: $serif-reg;
-    font-size: 1.75rem;
-    margin-top: 2em;
+    font-size: var(--large);
+    margin-top: calc(2 * var(--medium));
     font-weight: normal;
+    line-height: 1.4;
 }
 
 
 p {
     font-family: $serif-reg;
-    font-size: 1.5rem;
+    font-size: var(--medium);
     margin-top: 2em;
+    line-height: 1.4;
 
 }
 
@@ -52,13 +61,13 @@ a {
 }
 
 .title {
-    margin-top: 6rem;
-
+    margin-top: 4.5rem;
 }
+
+
 
 .quote {
     color: $white;
-    font-size: 1.4rem;
     padding: 3em;
     height: 100%;
     display: flex;
@@ -68,15 +77,17 @@ a {
     &-text {
         margin-top: 0em;
         font-family: $sans-reg;
-        font-size: 2rem;
+        font-size: var(--large);
         line-height: 1.4;
+        text-indent: -0.4em;
     }
 
     &-caption {
         padding: 0;
         margin: 0;
+        margin-top: 1em;
         font-family: $serif-reg;
-        font-size: 1rem;
+        font-size: var(--small);
     }
 }
 
@@ -88,21 +99,33 @@ a {
 }
 
 .whole-page {
-    min-height: 100vh;
+    min-height: calc(100vh - 3rem);
     width: 100%;
 
     .content {
         height: 100%;
         width: 60%;
-        margin: 0 auto 6rem auto;
+        margin: 0 auto 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        p {
+            margin-top: 1em;
+        }
+
+        p:first-of-type {
+            margin-top: 2em;
+        }
+
+        p:last-of-type {
+            margin-bottom: 4.5em;
+        }
     }
 }
 
 .split-page-container {
-    height: 100vh;
+    height: calc(100vh - 3rem);
     width: 100%;
     display: flex;
 
@@ -118,7 +141,6 @@ a {
 
             img {
                 height: 100%;
-                opacity: 0.85;
             }
         }
     }
@@ -140,7 +162,6 @@ a {
 
 /* Splash Page */
 .splash {
-    display:none;
     position: fixed;
     top: 0;
     left: 0;
@@ -149,14 +170,34 @@ a {
     width: 100%;
     height: 100vh;
     display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 20% 60% 20%;
     align-content: center;
     justify-items: center;
     z-index: 200;
 
     &-text {
-        width: 60%;
+        width: 100%;
         text-align: center;
         text-align-last: center;
+        grid-area: 2 / 2 / 3 / 3;
+        font-size: var(--large);
+        font-family: $sans-reg;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    &-logo {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 60%;
+        grid-area: 3 / 2 / 4 / 3;
+        padding-bottom: 107px;
+
+        img{
+            height: 50px;
+        }
     }
 }
 
@@ -164,7 +205,7 @@ a {
     display: none;
 }
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
     to {
         opacity: 1;
     }
@@ -173,7 +214,7 @@ a {
 .fade-in {
     opacity: 0;
     animation: fadeIn 2s ease-in forwards;
-}
+} */
 
 @keyframes fadeOut {
     to {
@@ -189,7 +230,7 @@ a {
 /* Nav Bar */
 
 nav {
-    height: auto;
+    height: 3rem;
     width: 100%;
     background-color: $white;
     position: fixed;
@@ -203,7 +244,7 @@ nav {
 
 .logo {
     text-transform: uppercase;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     letter-spacing: 0.5em;
 }
 
@@ -212,14 +253,40 @@ nav {
     justify-content: space-between;
     align-content: center;
     line-height: 1;
+    position: fixed;
+    top: 0px;
+    right: 0px;
 
     a {
-        margin: 1em 2rem 1em 0rem;
+        padding: 1em 1.5rem 1em 0rem;
+        letter-spacing: 0.03em;
     }
 
     a:hover, .active{
         font-family: $serif-reg-italic;
     }
+
+    .nav-about {
+        position: absolute;
+        top: 0;
+        right: 233px;
+    }
+    .nav-service {
+        position: absolute;
+        top: 0;
+        right: 156px;
+    }
+    .nav-clients {
+        position: absolute;
+        top: 0;
+        right: 81px;
+    }
+    .nav-contact {
+        position: absolute;
+        top: 0;
+        right: 0px;
+    }
+
 }
 
 .mobile-nav {
@@ -234,13 +301,7 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-
-    .opacity {
-        height: 100%;
-        width: 100%;
-        background-color: white;
-        opacity: 0.2;
-    }
+    height: 100vh;
 }
 
 .clmax-def {
@@ -254,47 +315,115 @@ nav {
 
     p {
         background-color: $white;
-        font-size: 0.75rem;
+        font-size: var(--x-small);
         padding: 1.75em;
-        line-height: 1.6;
+        line-height: 1.4;
         margin-top: 0;
+        letter-spacing: 0.03em;
     }
 }
 
 /* Contact Page */
+#contact-page {
+    height: calc(100vh - 6rem);
+    min-height: auto;
 
-.contact {
-    height: 100%;
-    width: 60%;
-    margin: 0 auto 3rem auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .contact {
+        height: 100%;
+        width: 60%;
+        margin: 0 auto 3rem auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    .contact-grid {
-        margin-top: 3em;
-        display: grid;
-        justify-items: center;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-
-        .contact-card {
+        .contact-info {
             display: flex;
             flex-direction: column;
-            align-items: center;    
-            
-            p {
-                font-size: 1rem;
+            align-items: center;
+            margin-top: 2em;
+            font-size: var(--large);
+
+            .contact-address {
+                text-align: center;
+
+                p {
+                    display: inline-block;
+                }
             }
-        
-            h3 {
-                font-family: $sans-reg;
+
+            div p {
+                justify-self: center;
+                margin: 0;
+                margin-bottom: 2em;
             }
-        } 
+        }
     }
 }
 
+footer {
+    margin-top: calc(3rem - 205px);
+    height: 205px;
+
+    .footer-content {
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        .footer-logo {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+
+
+            img {
+                height: 50px;
+            }
+
+        
+        }
+            
+        .footer-text {
+            display: flex;
+            flex-direction: column;
+            font-size: var(--x-small);
+            align-items: center;
+            margin-top: 2em;
+
+            p {
+                font-size: var(--x-small);
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: 0.03em;
+                display: inline-block;
+                margin-right: 1em;
+            }
+
+            .footer-info {
+                .footer-email, .footer-privacy {
+                    display: inline-block;
+                }
+
+                .footer-privacy {
+                    p:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+                
+            }
+
+            
+        }
+    }
+
+    
+}
+
+    
 
 
 
