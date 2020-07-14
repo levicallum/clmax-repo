@@ -4,10 +4,10 @@ const splash = document.querySelector('.splash');
 document.addEventListener('DOMContentLoaded', (e)=>{
     setTimeout(()=>{
         splash.classList.add('fade-out');
-    }, 4000);
+    }, 5000);
     setTimeout(()=>{
         splash.classList.add('display-none');
-    }, 5000);
+    }, 10000);
 });
 
 

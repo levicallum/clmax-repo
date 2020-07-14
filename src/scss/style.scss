@@ -302,11 +302,18 @@ nav {
     background-size: cover;
     position: relative;
     height: 100vh;
+
+    .opacity {
+        height: 100%;
+        width: 100%;
+        background-color: $black;
+        opacity: 0.1;
+    }
 }
 
 .clmax-def {
     position: absolute;
-    bottom: 50px;
+    bottom: 87px;
     left: 33.33%;
     width: 33.33%;
     min-width: 310px;

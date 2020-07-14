@@ -255,10 +255,15 @@ nav {
   background-size: cover;
   position: relative;
   height: 100vh; }
+  #home .opacity {
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.1; }
 
 .clmax-def {
   position: absolute;
-  bottom: 50px;
+  bottom: 87px;
   left: 33.33%;
   width: 33.33%;
   min-width: 310px; }
