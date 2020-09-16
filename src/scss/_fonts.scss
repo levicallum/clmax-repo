@@ -1,28 +1,30 @@
 /* Typography */
 @font-face {
     font-family: 'Untitled Serif Regular';
-    src: local('Untitled Serif Regular'), local('Untitled-Serif-Regular'), url('../fonts/untitled-serif-test-regular.woff') format('woff');
+    src: local('Untitled Serif Regular'), local('Untitled-Serif-Regular'),
+    url('../fonts/untitled-serif-web-regular.woff') format('woff'),
+    url('../fonts/untitled-serif-web-regular.woff2') format('woff2'),
+    url('../fonts/untitled-serif-web-regular.eot') format('eot');
     font-weight: 400;
     font-style: normal;
  }
 
  @font-face {
     font-family: 'Untitled Serif Regular Italic';
-    src: local('Untitled Serif Regular Italic'), local('Untitled-Serif-Regular-Italic'), url('../fonts/untitled-serif-test-regular-italic.woff') format('woff');
+    src: local('Untitled Serif Regular Italic'), local('Untitled-Serif-Regular-Italic'), 
+    url('../fonts/untitled-serif-web-regular-italic.woff') format('woff'),
+    url('../fonts/untitled-serif-web-regular-italic.woff2') format('woff2'),
+    url('../fonts/untitled-serif-web-regular-italic.eot') format('eot');;
     font-weight: 400;
     font-style: normal;
  }
 
  @font-face {
     font-family: 'Untitled Sans Regular';
-    src: local('Untitled Sans Regular'), local('Untitled-Sans-Regular'), url('../fonts/untitled-sans-test-regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
- }
-
- @font-face {
-    font-family: 'Untitled Sans Regular Italic';
-    src: local('Untitled Sans Regular Italic'), local('Untitled-Sans-Regular-Italic'), url('../fonts/untitled-sans-test-regular-italic.woff') format('otf');
+    src: local('Untitled Sans Regular'), local('Untitled-Sans-Regular'), 
+    url('../fonts/untitled-sans-web-regular.woff') format('woff'),
+    url('../fonts/untitled-sans-web-regular.woff2') format('woff2'),
+    url('../fonts/untitled-sans-web-regular.eot') format('eot');
     font-weight: 400;
     font-style: normal;
  }

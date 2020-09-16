@@ -64,8 +64,6 @@ a {
     margin-top: 4.5rem;
 }
 
-
-
 .quote {
     color: $white;
     padding: 3em;
@@ -86,8 +84,18 @@ a {
         padding: 0;
         margin: 0;
         margin-top: 1em;
-        font-family: $serif-reg;
-        font-size: var(--small);
+
+        .name{
+            font-family: $sans-reg;
+            font-size: var(--small);
+            margin: 0;
+        }
+
+        .organisation{
+            font-family: $serif-reg;
+            font-size: var(--small);
+            margin: 0;
+        }
     }
 }
 
@@ -126,6 +134,7 @@ a {
 
 .split-page-container {
     height: calc(100vh - 3rem);
+    min-height: 683px;
     width: 100%;
     display: flex;
 
@@ -139,7 +148,30 @@ a {
             width: 100%;
             overflow: hidden;
 
-            img {
+            .image-one {
+                background-image: url('../images/model.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                height: 100%;
+            }
+
+            .image-two {
+                background-image: url('../images/library.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                height: 100%;
+            }
+
+            .image-three {
+                background-image: url('../images/award.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
                 height: 100%;
             }
         }
@@ -158,10 +190,8 @@ a {
     background-color: $white;
 }
 
-
-
 /* Splash Page */
-.splash {
+#splash {
     position: fixed;
     top: 0;
     left: 0;
@@ -176,7 +206,7 @@ a {
     justify-items: center;
     z-index: 200;
 
-    &-text {
+    .splash-text {
         width: 100%;
         text-align: center;
         text-align-last: center;
@@ -187,7 +217,7 @@ a {
         margin-bottom: auto;
     }
     
-    &-logo {
+    .splash-logo {
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -199,22 +229,11 @@ a {
             height: 50px;
         }
     }
-}
 
-.display-none {
-    display: none;
-}
-
-/* @keyframes fadeIn {
-    to {
-        opacity: 1;
+    &.hidden {
+        display: none;
     }
 }
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 2s ease-in forwards;
-} */
 
 @keyframes fadeOut {
     to {
@@ -227,25 +246,93 @@ a {
     animation: fadeOut 2s linear forwards;
 }
 
+/* Cookie Banner */
+
+#cookie-container {
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+
+	&.hidden {
+        display: none;
+    }
+    
+    &.fade {
+        opacity: 0;
+    }
+
+	.cookie-background {
+		height: 100%;
+		width: 100%;
+		background-color: $grey;
+		opacity: 60%;
+		position: absolute;
+	}
+	.cookie-banner {
+		width: 60%;
+		padding: 3rem;
+		display: flex;
+		background-color: $white;
+		position: absolute;
+        justify-content: space-between;
+        
+		.cookie-links {
+            display: flex;
+            
+			.cookie-accept {
+				margin-right: 3rem;
+            }
+            
+			.cookie-accept,
+			.cookie-readmore {
+				text-transform: uppercase;
+			}
+        }
+        
+        .cookie-message {
+			margin-right: 3rem;
+        }
+
+		.cookie-text {
+			font-family: $sans-reg;
+			font-size: var(--small);
+            margin: 0;
+        }
+	}
+}
+
 /* Nav Bar */
+
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+}
 
 nav {
     height: 3rem;
     width: 100%;
     background-color: $white;
-    position: fixed;
-    top: 0;
-    left: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    z-index: 99;
 }
+
 
 .logo {
     text-transform: uppercase;
     margin-left: 1.5rem;
     letter-spacing: 0.5em;
+    align-self: center;
 }
 
 .nav-links {
@@ -253,7 +340,7 @@ nav {
     justify-content: space-between;
     align-content: center;
     line-height: 1;
-    position: fixed;
+    position: relative;
     top: 0px;
     right: 0px;
 
@@ -318,8 +405,6 @@ nav {
     width: 33.33%;
     min-width: 310px;
     
-
-
     p {
         background-color: $white;
         font-size: var(--x-small);
@@ -330,15 +415,59 @@ nav {
     }
 }
 
+/* About Page */
+
+.whole-page {
+
+    .about {
+
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .about-logo {
+
+            img {
+                height: 80px;
+                margin: 4.5rem 90px 4.5rem 0;
+            }
+        }
+    }
+}
+
+/* Client Page */
+.whole-page {
+
+    .content{
+
+        .client-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+            p {
+                margin-top: 0.3em;
+                font-size: var(--large);
+            }
+
+            p:first-of-type {
+                margin-top: calc(2 * var(--medium));
+            }
+            
+        }
+
+    }
+}
+
 /* Contact Page */
 #contact-page {
-    height: calc(100vh - 6rem);
-    min-height: auto;
+    height: calc(100vh - 3rem);
+    min-height: 750px;
 
     .contact {
         height: 100%;
         width: 60%;
-        margin: 0 auto 3rem auto;
+        margin: 0 auto 0rem auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -361,15 +490,94 @@ nav {
             div p {
                 justify-self: center;
                 margin: 0;
-                margin-bottom: 2em;
+                margin-bottom: 1em;
+            }
+
+            .contact-linkedin {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h3 {
+                    margin: 0;
+                }
+
+                a:hover, .active {
+                    font-family: $serif-reg-italic;
+                }
+
+                #linkedin-logo{
+                    width: 50px;
+                    height: 50px;
+                }
+
+                img:hover {
+                    opacity: 0.4;
+                }
+            }
+
+            .contact-email {
+                a:hover, .active {
+                    font-family: $serif-reg-italic;
+                }
             }
         }
     }
 }
 
+/* Privacy Page */
+
+.whole-page {
+
+    .privacy {
+
+        margin-bottom: 10rem;
+
+        ul {
+            width: 100%;
+            padding-left: 1em;;
+
+            li:first-of-type {
+                margin-top: 1em;
+            }
+
+            li {
+                
+                p:first-of-type {
+                    margin-top: 0em;
+                }
+        
+                p:last-of-type {
+                    margin-bottom: 0em;
+        
+                }
+        
+            }
+            
+        }
+        
+        p:first-of-type {
+            margin-top: 1em;
+        }
+        
+    }
+}
+
+.privacy-anchor {
+    display: block;
+    position: relative;
+    height: 3rem;
+    visibility: hidden;
+}
+
+.privacy-header {
+    margin-top: 3em;
+    width: 100%;
+}
+
+/* Footer */
 footer {
-    margin-top: calc(3rem - 205px);
-    height: 205px;
+    margin-top: -221px;
 
     .footer-content {
         background-color: $white;
@@ -382,15 +590,11 @@ footer {
         padding-bottom: 3rem;
 
         .footer-logo {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-
 
             img {
-                height: 50px;
+                height: 80px;
+                margin: 0 90px 0 0;
             }
-
         
         }
             
@@ -411,28 +615,15 @@ footer {
             }
 
             .footer-info {
-                .footer-email, .footer-privacy {
-                    display: inline-block;
+
+                p:last-of-type {
+                    margin-right: 0;
                 }
 
-                .footer-privacy {
-                    p:last-of-type {
-                        margin-right: 0;
-                    }
-                }
-                
             }
-
-            
         }
     }
-
-    
 }
-
-    
-
-
 
 @import'media';
 

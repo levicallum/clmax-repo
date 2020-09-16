@@ -23,31 +23,50 @@
         --medium: 0.9rem;
 
     }
+
+    .title {
+        margin-top: 2.5rem;
+    }
 }
 
 @media only screen and (max-width: 900px) {
     
-   
-   
    /* Splash */
-    .splash {
+    #splash {
         grid-template-columns: 10% 80% 10%;
     
-        &-text {
+        .splash-text {
             width: 80%;
         }
         
-        &-logo {
+        .splash-logo {
             width: 60%;
             grid-row: 3 / 4;
             padding-bottom: 65px;
         }
     }
+
+    /* Cookie Banner */
+    #cookie-container {
+
+        .cookie-banner {
+            width: 80%;
+            flex-direction: column;
+
+            .cookie-links {
+                margin-top: 1rem;
+            }
+        }
+    }
   
     /* Home Page */
+    #home {
+        background-image: url('../images/home_mobile.jpg');
+    }
+
     .clmax-def {
         position: absolute;
-        bottom: 46vh;
+        bottom: 7vh;
         width: 80%;
         left: 10%;
     }
@@ -58,6 +77,31 @@
         position: relative;
         top: -3rem;
         visibility: hidden;
+    }
+
+    /* About Page */
+
+    .whole-page {
+
+        .about {
+
+            .about-logo {
+
+                img {
+                    height: 45px;
+                    margin: 2.5rem 55px 2.5rem 0;
+                }
+            }
+        }
+    }
+
+    /* Contact Page */
+    #contact-page {
+        min-height: auto;
+
+        .contact {
+            width: 80%;
+        }
     }
 
     /* Mobile nav */
@@ -114,7 +158,6 @@
             &::after {
                 top: 8px;
                 background-color: $black;
-    
             }
         }
     }
@@ -136,7 +179,6 @@
         a:hover, .active{
             font-family: $serif-reg-italic;
         }
-
         
         .mobile-link {
             background-color: $white;
@@ -144,12 +186,9 @@
             margin-left: 2rem;
         }
     }
-    
 
     .mobile-nav-open {
         transform: translateX(0);
-
-
     }
 
     .mobile-nav-open .hamburger {
@@ -158,15 +197,12 @@
 
     .mobile-nav-open .hamburger::before {
         transform: rotate(90deg) translate(8px);
-
     }
 
     .mobile-nav-open .hamburger::after {
         transform: rotate(90deg) translate(-8px);
         opacity: 0;
-
     }
-
 
     /* Mobile Page contents */
     .whole-page {
@@ -189,12 +225,24 @@
                 height: 100%;
                 width: 100%;
                 display: block;
+
+                .image-one {
+                    background-image: url('../images/model_mobile.jpg');
+                    width: auto;
+                    height: 50vh;
+                }
     
-                img {
-                    display: block;
-                    overflow: hidden;
-                    object-fit: cover;
-                    width: 100%;}
+                .image-two {
+                    background-image: url('../images/library_mobile.jpg');
+                    width: auto;
+                    height: 50vh;
+                }
+    
+                .image-three {
+                    background-image: url('../images/award_mobile.jpg');
+                    width: auto;
+                    height: 50vh;
+                }
             }
         }
     }
@@ -228,40 +276,34 @@
         }
     }
 
-    /* Mobile footer */
-    
-    /* .footer-address {
-        display: none;
-    }
-    .footer-email p{
-        display: none;
-    } */
-    
-    
     footer {
-        margin-top: calc(3rem - 139px);
-        height: 139px;
-
+        margin-top: -114px;
+        // height: 205px;
+    
         .footer-content {
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
 
             .footer-text {
-                .footer-address {
-                    display: none;
-                }
+                margin-top: 0;
+
                 .footer-info {
-                    .footer-email {
+
+                    .footer-address {
                         display: none;
                     }
                 }
             }
+    
+            .footer-logo {
+                
+                img {
+                    height: 45px;
+                    margin: 0rem 55px 1rem 0;
+                }
+            }
         }
     }
-    
-    
-    
-   
 }
 
 

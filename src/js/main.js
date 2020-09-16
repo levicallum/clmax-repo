@@ -1,15 +1,30 @@
+/* Toggle Mobile Nav */
+
+const navToggle = document.querySelector('.mobile-nav-toggle');
+const mobileNavLinks = document.querySelector('.mobile-nav-links');
+
+navToggle.addEventListener('click', () => {
+    mobileNavLinks.classList.toggle('mobile-nav-open');
+    navToggle.classList.toggle('mobile-nav-open');
+});
+
+mobileNavLinks.addEventListener('click', () => {
+    mobileNavLinks.classList.toggle('mobile-nav-open');
+    navToggle.classList.toggle('mobile-nav-open');
+});
+
+
 /* Splash page dynamics */
-const splash = document.querySelector('.splash');
+const splash = document.getElementById('splash');
 
 document.addEventListener('DOMContentLoaded', (e)=>{
     setTimeout(()=>{
         splash.classList.add('fade-out');
     }, 5000);
     setTimeout(()=>{
-        splash.classList.add('display-none');
-    }, 10000);
+        splash.classList.add('hidden');
+    }, 7000);
 });
-
 
 /* Nav Button Section Change */
 const thresholdOptions = {
@@ -93,18 +108,68 @@ const contactObserver = new IntersectionObserver(function(
 
 contactObserver.observe(contact);
 
-/* Toggle Mobile Nav */
+// cookies
 
-const navToggle = document.querySelector('.mobile-nav-toggle');
-const mobileNavLinks = document.querySelector('.mobile-nav-links');
+let date = new Date();
+date.setFullYear(date.getFullYear() + 1);
 
-navToggle.addEventListener('click', () => {
-    mobileNavLinks.classList.toggle('mobile-nav-open');
-    navToggle.classList.toggle('mobile-nav-open');
-});
+const cookieStorage = {
+    getItem: (key) => {
+        const cookies = document.cookie
+            .split(';')
+            .map(cookie => cookie.split('='))
+            .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
+            return cookies[key]
+    },
+    setItem: (key, value) => {
 
-mobileNavLinks.addEventListener('click', () => {
-    mobileNavLinks.classList.toggle('mobile-nav-open');
-    navToggle.classList.toggle('mobile-nav-open');
-});
+        document.cookie = `${key}=${value};expires=`+date+`;SameSite=Lax`;
+    },
+};
+
+const storageType = cookieStorage;
+
+const shouldShowPopup = () => !storageType.getItem('clmax_consent');
+const saveConsentToStorage = () => storageType.setItem('clmax_consent', true);
+
+// const shouldShowSplash = () => !storageType.getItem('clmax_splash');
+// const saveSplashToStorage = () => storageType.setItem('clmax_splash', true);
+
+window.onload = () => {
+    
+    // splash cookie
+    // if(!shouldShowSplash(storageType)) {
+    //     splash.classList.add('hidden'); 
+    // } else {
+    //     setTimeout(() => {
+    //     saveSplashToStorage(storageType);
+    //     splash.classList.add('hidden');
+    // }, 7000);
+    // }
+    
+    // consent cookie
+    const consentPopup = document.getElementById('cookie-container');
+    const acceptBtn = document.getElementById('cookie-accept');
+
+    const acceptFn = event => {
+        saveConsentToStorage(storageType);
+        consentPopup.classList.add('fade');
+        setTimeout(() => {
+            consentPopup.classList.add('hidden'); 
+         }, 1000);
+    };
+
+    acceptBtn.addEventListener('click', acceptFn);
+
+
+    if(shouldShowPopup(storageType)) {
+        consentPopup.classList.remove('hidden'); 
+        setTimeout(() => {
+           consentPopup.classList.remove('fade'); 
+        }, 2000);
+        
+    }
+};
+
+
 
